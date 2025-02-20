@@ -1,0 +1,29 @@
+buat database
+CREATE DATABASE db_inventory_hesti_xi4
+
+buat table
+CREATE TABLE barang
+(id_barang integer PRIMARY KEY,
+ nama_barang varchar(30),
+ id_jenis varchar(30),
+ harga integer,
+ stok integer);
+
+CREATE TABLE jenis_barang
+(id_jenis varchar(30) PRIMARY KEY,
+ nama_jenis varchar(30));
+
+mengisi data
+INSERT INTO barang VALUES
+("120","lemari","A01","500000","11"),
+("121","ranjang","A02","750000","28"),
+("122","kursi","A03","800000","24");
+
+INSERT INTO jenis_barang VALUES
+("A01","perabotan"),
+("A02","perabotan"),
+("A03","perabotan");
+
+ALTER TABLE barang ADD FOREIGN KEY (id_jenis) REFERENCES jenis_barang (id_jenis)
+ON DELETE CASCADE
+ON UPDATE CASCADE
